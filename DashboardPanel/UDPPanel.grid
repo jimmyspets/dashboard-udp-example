@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><abs contexttype="opengear" gridsize="20" id="_top">
+   <meta>
+      <params>
+         <param access="1" constraint="0.0;100.0;0.0;100.0;1" constrainttype="INT_STEP_RANGE" name="Vu1R" oid="Vu1R" precision="0" type="INT32" value="61" widget="level-meter"/>
+         <param access="1" constraint="0.0;100.0;0.0;100.0;1" constrainttype="INT_STEP_RANGE" name="Vu1L" oid="Vu1L" precision="0" type="INT32" value="87" widget="level-meter"/>
+      </params>
+   </meta>
+   <table height="460" left="40" top="140" width="60">
+      <tr>
+         <table colspan="1" fill="both" rowspan="1" weightx="1.0" weighty="1.0">
+            <tr>
+               <param colspan="1" expand="true" fill="both" oid="Vu1L" rowspan="1" weightx="1.0" weighty="1.0"/>
+               <param colspan="1" expand="true" fill="both" oid="Vu1R" rowspan="1" weightx="1.0" weighty="1.0"/>
+            </tr>
+         </table>
+      </tr>
+   </table>
+   <listener autostart="true" buttontype="toggle" height="100" id="UDPControl" left="20" listenport="12345" maxlength="1500" name="UDPControl" top="20" udp="true" width="100">// Listener listens on the listenport on the computer running the Dashboard<task tasktype="ogscript">if (event.isMessageEvent())
+      {
+         var message = event.getBytesAsString().trim();
+
+         ogscript.debug('message received ' + message);
+         var controlMap = JSON.parse(message);
+ 
+         for (var key in controlMap){
+            ogscript.debug('key ' + key + ' value '+ controlMap[key]);
+            params.setValue(key, 0, controlMap[key])
+         }      
+      }</task>
+   </listener>
+</abs>
