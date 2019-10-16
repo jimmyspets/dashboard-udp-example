@@ -1,9 +1,9 @@
 {
-  "name": "docker_symetrixproxy_app",
+  "name": "dashboard_udp_send_example",
   "version": "1.0.0",
-  "description": "Node.js on Docker",
-  "author": "Jimmy Spets <jss@sodermalmskyrkan.se>",
-  "main": "server.js",
+  "description": "Code to demonstrate how to send values via UDP to Ross Dashboard",
+  "author": "Jimmy Spets <jimmy@spets.org>",
+  "main": "sender.js",
   "private": true,
   "scripts": {
     "start": "node server.js"
