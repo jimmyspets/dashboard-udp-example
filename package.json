@@ -1,0 +1,14 @@
+{
+  "name": "docker_symetrixproxy_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Jimmy Spets <jss@sodermalmskyrkan.se>",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "buffer-from": "^1.1.1"
+  }
+}
